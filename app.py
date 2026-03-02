@@ -9,20 +9,13 @@ from sklearn.model_selection import train_test_split
 st.set_page_config(page_title="HR Resume Analytics Dashboard",
                    layout="wide")
 
-# ------------------------------
-# TITLE
-# ------------------------------
+
 st.title("📊 SmartHire : Resume Intelligence & Hiring Analytics")
 st.markdown("Professional Resume Data Analysis & Prediction System")
 
-# ------------------------------
-# LOAD DATA
-# ------------------------------
+
 df = pd.read_csv("resume.csv")
 
-# ------------------------------
-# SIDEBAR FILTERS
-# ------------------------------
 st.sidebar.header("Filter Candidates")
 
 min_exp = int(df["Experience (Years)"].min())
@@ -36,9 +29,9 @@ exp_filter = st.sidebar.slider(
 df = df[(df["Experience (Years)"] >= exp_filter[0]) &
         (df["Experience (Years)"] <= exp_filter[1])]
 
-# ------------------------------
+
 # KPI CARDS
-# ------------------------------
+
 total_candidates = len(df)
 avg_score = round(df["Resume Score(0-100)"].mean(), 2)
 avg_experience = round(df["Experience (Years)"].mean(), 2)
@@ -51,9 +44,9 @@ col3.metric("Average Experience (Years)", avg_experience)
 
 st.markdown("---")
 
-# ------------------------------
+
 # ROW 1 - DISTRIBUTION + PIE
-# ------------------------------
+
 col4, col5 = st.columns(2)
 
 with col4:
@@ -74,9 +67,9 @@ with col5:
 
 st.markdown("---")
 
-# ------------------------------
+
 # CORRELATION ANALYSIS
-# ------------------------------
+
 st.subheader("Feature Correlation with Resume Score")
 
 corr = df.corr(numeric_only=True)["Resume Score(0-100)"]
@@ -93,9 +86,9 @@ st.plotly_chart(fig3, use_container_width=True)
 
 st.markdown("---")
 
-# ------------------------------
+
 # MACHINE LEARNING MODEL
-# ------------------------------
+
 X = df.drop("Resume Score(0-100)", axis=1)
 y = df["Resume Score(0-100)"]
 
@@ -128,9 +121,7 @@ st.plotly_chart(fig4, use_container_width=True)
 
 st.markdown("---")
 
-# ------------------------------
 # PREDICTOR SECTION (FIXED)
-# ------------------------------
 
 st.subheader("🎯 Resume Score Predictor")
 
