@@ -7,9 +7,10 @@ It Predict the Resume Score from 0-100 by giving input values as Experience Year
 
 --------------------------------------------------------------------------------------------------
 
-🛠 Tech Stack:
+🛠 Tech Stack
 
 Python | Pandas | NumPy | Matplotlib | Seaborn | Plotly | Scikit-learn | Streamlit
+
 --------------------------------------------------------------------------------------------------
 
  📊 Exploratory Data Analysis (EDA)
@@ -39,6 +40,4 @@ Built using Streamlit & Plotly featuring:
 Run locally:
 ```bash
 pip install -r requirements.txt
-
 streamlit run app.py
-
